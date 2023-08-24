@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-iap-${ARGOCD_ENV_INGRESS_NAME}
+  namespace: ${ARGOCD_ENV_INGRESS_NAMESPACE}
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+
+    kubernetes.io/ingress.global-static-ip-name: ${ARGOCD_ENV_INGRESS_IP_NAME}
+    networking.gke.io/v1beta1.FrontendConfig: "frontend-config-${ARGOCD_ENV_INGRESS_NAME}"
+    networking.gke.io/managed-certificates: managed-certificate-${ARGOCD_ENV_INGRESS_NAME}
+
+  rules:
+    - host: ${ARGOCD_ENV_INGRESS_DNS}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ${ARGOCD_ENV_SERVICE_NAME}
+                port:
+                  number: 80

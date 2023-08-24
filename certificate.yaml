@@ -1,0 +1,15 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-certificate-${ARGOCD_ENV_INGRESS_NAME}
+  namespace: ${ARGOCD_ENV_INGRESS_NAMESPACE}
+
+# Manually updating a Google-managed certificate (since it can not be updated):
+# 1. Create a new managed certificate for the new domain.
+# 2. Attach it to the Ingress without removing the old certificate.
+# 3. Wait until it becomes Active.
+# 4. Detach the old certificate from the Ingress and delete it.
+
+spec:
+  domains:
+    - ${ARGOCD_ENV_INGRESS_DNS}
