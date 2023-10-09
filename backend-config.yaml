@@ -8,4 +8,4 @@ spec:
   iap:
     enabled: true
     oauthclientCredentials:
-      secretName: oauth-iap-creds-secrets
+      secretName: oauth-internal-creds-secrets
