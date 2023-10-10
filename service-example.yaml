@@ -5,7 +5,7 @@ metadata:
   namespace: your-namespace
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
-    cloud.google.com/backend-config: '{"default": "backend-config-my-ingress-name"}' # All ports within the Service are associated with the backendconfig
+    cloud.google.com/backend-config: '{"default": "backend-config-${ARGOCD_ENV_INGRESS_NAME}"}' # All ports within the Service are associated with the backendconfig
 
 spec:
   ports:

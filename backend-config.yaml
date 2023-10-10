@@ -4,7 +4,7 @@ metadata:
   name: backend-config-${ARGOCD_ENV_INGRESS_NAME}
   namespace: ${ARGOCD_ENV_INGRESS_NAMESPACE}
 spec:
-  timeoutSec: 10000
+  timeoutSec: 10
   iap:
     enabled: true
     oauthclientCredentials:
