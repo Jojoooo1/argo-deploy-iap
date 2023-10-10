@@ -20,4 +20,4 @@ metadata:
               service:
                 name: ${ARGOCD_ENV_SERVICE_NAME}
                 port:
-                  number: 80
+                  number: ${ARGOCD_ENV_SERVICE_PORT}
