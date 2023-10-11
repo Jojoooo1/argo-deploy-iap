@@ -11,7 +11,7 @@ metadata:
     networking.gke.io/managed-certificates: managed-certificate-${ARGOCD_ENV_INGRESS_NAME}
 
     external-dns.alpha.kubernetes.io/ingress-hostname-source: annotation-only
-    ${EXTERNAL_DNS_ANNOTATION:=no-external-dns-managed: true}
+    ${EXTERNAL_DNS_ANNOTATION:=no-external-dns-managed: no-dns}
 
 spec:
   rules:
