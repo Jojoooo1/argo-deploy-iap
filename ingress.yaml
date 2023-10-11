@@ -11,7 +11,7 @@ metadata:
     networking.gke.io/managed-certificates: managed-certificate-${ARGOCD_ENV_INGRESS_NAME}
 
     # ${EXTERNAL_DNS:=# external-dns not set}
-    ${HOST-annotations-testexternal-dns:U+200Btest}
+    ${HOST-annotations}: ${ARGOCD_ENV_INGRESS_DNS}
 
 spec:
   rules:
