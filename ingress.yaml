@@ -11,7 +11,7 @@ metadata:
     networking.gke.io/managed-certificates: managed-certificate-${ARGOCD_ENV_INGRESS_NAME}
 
     # ${EXTERNAL_DNS:=# external-dns not set}
-    ${HOST:=external-dns.alpha.kubernetes.io/hostname}: ${ARGOCD_ENV_INGRESS_DNS}
+    ${HOST:=external-dns.alpha.kubernetes.io/hostname: test}
 
 spec:
   rules:
